@@ -27,7 +27,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Usuários</h5>
                             <p class="card-text">Selecione o tipo de acão desejada em "Usuários"</p>
-                            <button type="button" class="btn btn-success">Cadastrar</button>
+                            <a type="button" href="/sistema-padaria/cadastro_usuario.php" class="btn btn-success">Cadastrar</a>
                             <button type="button" class="btn btn-warning">Editar</button>
                             <button type="button" class="btn btn-info">Ver</button>
                             <button type="button" class="btn btn-danger">Excluir</button>
