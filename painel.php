@@ -28,8 +28,8 @@
                             <h5 class="card-title">Usuários</h5>
                             <p class="card-text">Selecione o tipo de acão desejada em "Usuários"</p>
                             <a type="button" href="/sistema-padaria/cadastro_usuario.php" class="btn btn-success">Cadastrar</a>
-                            <button type="button" class="btn btn-warning">Editar</button>
-                            <button type="button" class="btn btn-info">Ver</button>
+                            <a type="button" href="/sistema-padaria/ver_usuarios.php" class="btn btn-warning">Editar</a>
+                            <a type="button" href="/sistema-padaria/ver_usuarios.php" class="btn btn-info">Ver</a>
                             <button type="button" class="btn btn-danger">Excluir</button>
                           </div>
                         </div>
@@ -43,7 +43,7 @@
                             <p class="card-text">Selecione o tipo de acão desejada em "Matéria Prima"</p>
                             <a type="button" href="/sistema-padaria/cadastro_material.php" class="btn btn-success">Cadastrar</a>
                             <button type="button" class="btn btn-warning">Editar</button>
-                            <button type="button" class="btn btn-info">Ver</button>
+                            <a type="button" href="/sistema-padaria/ver_material.php" class="btn btn-info">Ver</a>
                             <button type="button" class="btn btn-danger">Excluir</button>
                           </div>
                         </div>
@@ -57,7 +57,7 @@
                             <p class="card-text">Selecione o tipo de acão desejada em "Produtos"</p>
                             <a type="button" href="/sistema-padaria/cadastro_produto.php" class="btn btn-success">Cadastrar</a>
                             <button type="button" class="btn btn-warning">Editar</button>
-                            <button type="button" class="btn btn-info">Ver</button>
+                            <a type="button" href="/sistema-padaria/ver_produtos.php" class="btn btn-info">Ver</a>
                             <button type="button" class="btn btn-danger">Excluir</button>
                           </div>
                         </div>
