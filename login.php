@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include "include\cabecalho.php";
 ?>
 
@@ -35,7 +34,7 @@
                           <input type="password" name="senha" class="form-control" placeholder="Insira sua senha" aria-label="Insira sua senha" aria-describedby="basic-addon1">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Entrar</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Entrar</button>
 
                     </form>
 

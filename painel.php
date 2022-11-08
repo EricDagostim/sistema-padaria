@@ -18,7 +18,7 @@
     <div class="container container-painel">
         <div class="row">
             <div class="col-12">
-                <h1>Bem vindo <span style="background-color: gray" class="badge badge-secondary">Nome Administrador</span></h1>
+                <h1>Bem vindo</h1>
 
                 <div class="row mt-5">
 
@@ -41,7 +41,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Matéria Prima</h5>
                             <p class="card-text">Selecione o tipo de acão desejada em "Matéria Prima"</p>
-                            <button type="button" class="btn btn-success">Cadastrar</button>
+                            <a type="button" href="/sistema-padaria/cadastro_material.php" class="btn btn-success">Cadastrar</a>
                             <button type="button" class="btn btn-warning">Editar</button>
                             <button type="button" class="btn btn-info">Ver</button>
                             <button type="button" class="btn btn-danger">Excluir</button>
@@ -55,7 +55,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Produtos</h5>
                             <p class="card-text">Selecione o tipo de acão desejada em "Produtos"</p>
-                            <button type="button" class="btn btn-success">Cadastrar</button>
+                            <a type="button" href="/sistema-padaria/cadastro_produto.php" class="btn btn-success">Cadastrar</a>
                             <button type="button" class="btn btn-warning">Editar</button>
                             <button type="button" class="btn btn-info">Ver</button>
                             <button type="button" class="btn btn-danger">Excluir</button>
