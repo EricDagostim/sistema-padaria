@@ -41,12 +41,16 @@
                         
                     </div>
 
-                    <div class="input-group mb-3 mt-3">
-                            <input type="text" class="form-control" name="pesquisa" placeholder="Pesquise por nome" aria-label="Pesquisar por nome" aria-describedby="button-addon2">
-                        <div class="input-group-append" method="_POST">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Pesquisar</button>
+                    <form action="">
+
+
+                        <div class="input-group mb-3 mt-3">
+                                <input type="text" class="form-control" name="pesquisa" placeholder="Pesquise por nome" aria-label="Pesquisar por nome" aria-describedby="button-addon2">
+                            <div class="input-group-append" method="_POST">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Pesquisar</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
 
                      <table class="table">
                                <thead class="thead-dark">
