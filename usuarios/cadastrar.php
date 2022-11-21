@@ -1,22 +1,34 @@
 <?php
     
-    include "include\cabecalho.php";
-    include_once ('config.php');
+    include "../cabecalho.php";
+    
 
+    
+    
+    if(!empty($_POST['submit'])){
 
-    if(isset($_POST['submit'])){
-
+    
       $nome = $_POST['nome'];
       $login = $_POST['login'];
       $senha = $_POST['senha'];                       
     
-      $result = mysqli_query($conexao, "INSERT INTO usuario (nome, login, senha) VALUES ('$nome', '$login', '$senha')");
-        
+      
+      
+      if($nome) {
+            $result = mysqli_query($conexao, "INSERT INTO usuario (nome, login, senha) VALUES ('$nome', '$login', '$senha')");
+            
+            if ($result) {
+                echo "Usuário cadastrado com sucesso!";
+                header("Location: {$urlBase}usuarios/index.php");
+            }else {
+                echo "Ocorreu um erro! Por favor, tente novamente";
+            }
+        }
 
     }                                  
             
 
-   
+    
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +38,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro usuário</title>
+
+    
 </head>
 
 <body>
@@ -62,8 +76,8 @@
                         </div>
 
                         <div class="align-btns">
-                            <a type="button" href="/sistema-padaria/painel.php" class="btn btn-secondary">Voltar</a>
-                            <button type="submit" name="submit" class="btn btn-success">Cadastrar</button>
+                            <a type="button" href="<?= $urlBase ?>/usuarios/index.php" class="btn btn-secondary">Voltar</a>
+                            <button type="submit" value="submit" name="submit" class="btn btn-success">Cadastrar</button>
                         </div>
 
                     </form>
