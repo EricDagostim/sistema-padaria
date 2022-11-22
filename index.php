@@ -1,5 +1,13 @@
     <?php
-        include "cabecalho.php";
+        
+    session_start();
+    include "cabecalho.php";
+
+    if((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)){
+        header("Location: ".$urlBase."login.php");
+    }
+    $logado = $_SESSION['login'];
+
     ?>
 
 
@@ -15,6 +23,7 @@
     <div class="container container-painel">
         <div class="row">
             <div class="col-12">
+                <a class="btn btn-sm btn-danger" href="<?=$urlBase?>sair.php">Sair</a>
                 <h1>Bem vindo</h1>
 
                 <div class="row mt-5">

@@ -1,34 +1,82 @@
 <?php
     
+    session_start();
     include "../cabecalho.php";
+
+
+
+    if((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)){
+        header("Location: ".$urlBase."login.php");
+    }
+    $logado = $_SESSION['login'];
     
-
-    $user = mysqli_query($conexao, "SELECT * FROM usuario WHERE id = <?={$id}?>"); 
-
-    if(!empty($_POST['submit'])){
-
     
-      $nome = $_POST['nome'];
-      $login = $_POST['login'];
-      $senha = $_POST['senha'];                       
+    if(!empty($_GET['id']))
+    {
+      
+      $id = $_GET['id'];
+      
+
+      $select = mysqli_query($conexao, "SELECT * FROM usuario WHERE id=$id");       
     
       
+      // $result = $conexao->query($select);
       
-      if($nome != "" && $login != "") {
-        if (isset($password)) {
-            $query = mysqli_query($conexao, "UPDATE users SET nome = '{$nome}', login = '{$login}', senha = '{$senha}' WHERE id = {$id}");
-        } else {
-            $query = mysqli_query($conexao, "UPDATE users SET nome = '{$nome}', login = '{$login}', senha = '{$senha}' WHERE id = {$id}");
-        }
+      
 
-        if ($query) {
-            header("location: $urlBase/usuarios/index.php");
-        }else {
-            
+      
+      
+      
+      // if ($result->num_rows > 0){
+       
+        while($user = mysqli_fetch_assoc($select)){
+
+          $nome = $user['nome'];
+          $login = $user['login'];
+          $senha = $user['senha']; 
+
         }
+        
+        
+        // $user = mysqli_fetch_assoc($select);
+      // }else{
+      //   header('Location: index.php');
+      // }
+
     }
 
-    }                                  
+    
+ 
+      
+      
+    
+
+    
+
+    // if(!empty($_POST['submit'])){
+
+    
+    //   $nome = $_POST['nome'];
+    //   $login = $_POST['login'];
+    //   $senha = $_POST['senha'];                       
+    
+      
+      
+    //   if($nome != "" && $login != "") {
+    //     if (isset($password)) {
+    //         $query = mysqli_query($conexao, "UPDATE users SET nome = '{$nome}', login = '{$login}', senha = '{$senha}' WHERE id = {$id}");
+    //     } else {
+    //         $query = mysqli_query($conexao, "UPDATE users SET nome = '{$nome}', login = '{$login}', senha = '{$senha}' WHERE id = {$id}");
+    //     }
+
+    //     if ($query) {
+    //         header("location: $urlBase/usuarios/index.php");
+    //     }else {
+    //         echo 'Erro ao atualizar usuário';
+    //     }
+    // }
+
+    // }                                  
             
 
     
@@ -51,6 +99,7 @@
         <div class="container container-cadastro">
             <div class="row">
                 <div class="col-6 offset-3">
+                    <a href=" <?=$urlBase?>usuarios/index.php" class="btn btn-sm btn-secondary">Voltar</a>
 
                
                     <h1>Editar Usuários</h1>
@@ -64,14 +113,14 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Aa</span>
                           </div>
-                          <input type="text" name="nome" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" required value="<?= $user['nome'];?>">
+                          <input type="text" name="nome" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" required value=" <?= $nome?> ">
                         </div>
                         
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">@</span>
                           </div>
-                          <input type="text" name="login" class="form-control" placeholder="Login (o acesso é com este campo)" aria-label="Login" aria-describedby="basic-addon1" required value="<?= $user['login'];?>">
+                          <input type="text" name="login" class="form-control" placeholder="Login (o acesso é com este campo)" aria-label="Login" aria-describedby="basic-addon1" required value="<?= $login ?>">
                         </div>
 
                         <div class="input-group mb-3">

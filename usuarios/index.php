@@ -1,8 +1,20 @@
 <?php
     
-    include "..\cabecalho.php";
+    session_start();
+    include "../cabecalho.php";
 
-    $query = mysqli_query($conexao, "SELECT * FROM usuario ORDER BY id DESC;");        
+
+
+    if((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)){
+        header("Location: ".$urlBase."login.php");
+    }
+    $logado = $_SESSION['login'];
+
+
+    
+    $query = mysqli_query($conexao, "SELECT * FROM usuario ORDER BY id DESC;");       
+    
+    
 ?>
 
 
@@ -31,15 +43,20 @@
                          </tr>
                      </thead>
                      <tbody>
-                         <?php while($user = mysqli_fetch_array($query)): ?>
-                             <tr>
+                         <?php while($user = mysqli_fetch_assoc($query)): ?>
+                            <tr>
                                  <td><?= $user['id'] ?></td>
                                  <td><?= $user['nome'] ?></td>
                                  <td><?= $user['login'] ?></td>
                                  <td class="td-actions">
-                                     <a href="<?= $urlBase. "usuarios/editar/{$user['id']}" ?>" class="btn btn-sm btn-warning">Editar</a>
+                                    
+                               
+                                     <a href="editar.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+
+                                 
                                      <!-- <a href="<?= $urlBase. "usuarios/visualizar/{$user['id']}" ?>" class="btn btn-sm btn-info">Ver</a> -->
                                      <a href="<?= $urlBase. "usuarios/deletar/{$user['id']}" ?>" class="btn btn-sm btn-danger">Excluir</a>
+                                     
                                  </td>
                              </tr>
                          <?php endwhile;?>
