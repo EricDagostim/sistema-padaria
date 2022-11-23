@@ -1,6 +1,5 @@
 <?php 
-
-session_start();
+    session_start();
     include "../cabecalho.php";
 
 
@@ -9,5 +8,18 @@ session_start();
         header("Location: ".$urlBase."login.php");
     }
     $logado = $_SESSION['login'];
+    
+    
+    if(!empty($_GET['id']))
+    {
+      
+        $id = $_GET['id'];
+        
+        $delete = mysqli_query($conexao, "DELETE FROM usuario WHERE id= $id");
+        
+        header("Location: $urlBase"."usuarios/index.php");
+    
+    }
+
 
 ?>

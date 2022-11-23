@@ -1,42 +1,31 @@
 <?php
     
-    include "..\include\cabecalho.php";
+    session_start();
+    include "../cabecalho.php";
+
+    if((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)){
+        header("Location: ".$urlBase."login.php");
+    }
+    $logado = $_SESSION['login'];
     
-   
-    if(!empty($_POST['submit'])){
+    
+    if(isset($_POST['cadastro'])){
         
-
-      $nome = $_POST['nome'];
-      $vl_unitario = $_POST['vl_unitario'];
-      $ps_unitario = $_POST['ps_unitario'];  
-      $quantidade = $_POST['quantidade'];
-
-      
-      
-      if($nome != "" && $vl_unitario != "" && $ps_unitario != "" && $quantidade != "") {
+        $nome = $_POST['nome'];
+        $vl_unitario = $_POST['vl_unitario'];
+        $ps_unitario = $_POST['ps_unitario'];  
+        $quantidade = $_POST['quantidade'];
+        
         $result = mysqli_query($conexao, "INSERT INTO produtos (nome, vl_unitario, ps_unitario, quantidade) VALUES ('$nome', '$vl_unitario', '$ps_unitario','$quantidade')");
         
-        
         if ($result) {
-            
-            header("Location: {$urlBase}produtos/index.php");
+            echo "Produto cadastrado com sucesso!";
+            // header("Location: {$urlBase}produtos/index.php");
         }else {
             echo "Ocorreu um erro! Por favor, tente novamente";
         }
-  }
-    }   
-    
-    
-  
-   
 
-
-      
-    
-      
-
-      
-            
+    }            
 ?>
 
 <!DOCTYPE html>
@@ -45,20 +34,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro usuário</title>
+    <title>Cadastro Produtos</title>
 </head>
 
-<body>
-
-   
+<body> 
         <div class="container container-cadastro">
             <div class="row">
                 <div class="col-6 offset-3">
-
-               
+                                   
                     <h1>Cadastro Produto</h1>
                   
-                    <form class="form-cadastro" method="POST" name="form">
+                    <form class="form-cadastro" method="POST" >
                          
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
@@ -84,22 +70,14 @@
                         </div>
 
                         <div class="align-btns">
-                            <a type="button" href="/sistema-padaria/painel.php" class="btn btn-secondary">Voltar</a>
-                            <button type="submit" name="submit" class="btn btn-success">Cadastrar</button>
-                        </div>
-                        
-             
-
-                                                
-                    </form>
-
-                  
-        
+                            <a type="button" href="<?=$urlBase?>produtos/index.php" class="btn btn-secondary">Voltar</a>
+                            <button type="submit" name="cadastro" class="btn btn-success">Cadastrar</button>
+                        </div>                             
+                    </form>      
                 </div>
             </div>
         </div>
     </body>
-
 </html>
 
 

@@ -22,63 +22,31 @@
       
       // $result = $conexao->query($select);
       
-      
-
-      
-      
-      
-      // if ($result->num_rows > 0){
+      if ($select->num_rows > 0){
        
         while($user = mysqli_fetch_assoc($select)){
-
           $nome = $user['nome'];
           $login = $user['login'];
           $senha = $user['senha']; 
-
         }
-        
-        
         // $user = mysqli_fetch_assoc($select);
-      // }else{
-      //   header('Location: index.php');
-      // }
+
+       }else{
+        header('Location: index.php');
+      }
 
     }
 
-    
- 
-      
-      
-    
+    if(isset($_POST['editar'])){
+        $nome = $_POST['nome'];
+        $login = $_POST['login'];
+        $senha = $_POST['senha']; 
 
-    
+        $sqlAtualiza = mysqli_query($conexao, "UPDATE usuario SET nome='$nome', login='$login', senha='$senha'
+        WHERE id='$id'");
 
-    // if(!empty($_POST['submit'])){
-
-    
-    //   $nome = $_POST['nome'];
-    //   $login = $_POST['login'];
-    //   $senha = $_POST['senha'];                       
-    
-      
-      
-    //   if($nome != "" && $login != "") {
-    //     if (isset($password)) {
-    //         $query = mysqli_query($conexao, "UPDATE users SET nome = '{$nome}', login = '{$login}', senha = '{$senha}' WHERE id = {$id}");
-    //     } else {
-    //         $query = mysqli_query($conexao, "UPDATE users SET nome = '{$nome}', login = '{$login}', senha = '{$senha}' WHERE id = {$id}");
-    //     }
-
-    //     if ($query) {
-    //         header("location: $urlBase/usuarios/index.php");
-    //     }else {
-    //         echo 'Erro ao atualizar usuário';
-    //     }
-    // }
-
-    // }                                  
-            
-
+        echo "Usuário atualizado com sucesso";
+    }
     
 ?>
 
@@ -99,16 +67,11 @@
         <div class="container container-cadastro">
             <div class="row">
                 <div class="col-6 offset-3">
-                    <a href=" <?=$urlBase?>usuarios/index.php" class="btn btn-sm btn-secondary">Voltar</a>
 
-               
                     <h1>Editar Usuários</h1>
                    
-                    <form class="form-cadastro" method="POST" name="form">
+                    <form class="form-padrao" method="POST" name="form">
                          
-
-                        
-
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Aa</span>
@@ -132,7 +95,7 @@
 
                         <div class="align-btns">
                             <a type="button" href="<?= $urlBase ?>/usuarios/index.php" class="btn btn-secondary">Voltar</a>
-                            <button type="submit" value="submit" name="submit" class="btn btn-success">Cadastrar</button>
+                            <button type="submit" value="editar" name="editar" class="btn btn-success">Salvar</button>
                         </div>
 
                     </form>

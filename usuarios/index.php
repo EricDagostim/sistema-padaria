@@ -21,11 +21,12 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Usuários</h1>
+            <h1 style="text-align: center;">Usuários</h1>
 
             <div class="align-header-table">
-
-                <p>Aqui você pode Cadastrar, Editar, Visualizar ou Deletar Usuários do sistema</p>
+                <a type="button" href="<?= $urlBase ?>index.php" class="btn btn-sm btn-secondary">Voltar</a>
+                
+                <p style="text-align: center;">Aqui você pode Cadastrar, Editar, Visualizar ou Deletar <strong>Usuários</strong> do sistema</p>
                 
     
                 <a href="<?= $urlBase. "usuarios/cadastrar" ?>" class="btn btn-sm btn-success">Cadastrar +</a>
@@ -49,14 +50,8 @@
                                  <td><?= $user['nome'] ?></td>
                                  <td><?= $user['login'] ?></td>
                                  <td class="td-actions">
-                                    
-                               
                                      <a href="editar.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
-
-                                 
-                                     <!-- <a href="<?= $urlBase. "usuarios/visualizar/{$user['id']}" ?>" class="btn btn-sm btn-info">Ver</a> -->
-                                     <a href="<?= $urlBase. "usuarios/deletar/{$user['id']}" ?>" class="btn btn-sm btn-danger">Excluir</a>
-                                     
+                                     <a href="deletar.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-danger">Excluir</a>
                                  </td>
                              </tr>
                          <?php endwhile;?>

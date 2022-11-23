@@ -23,8 +23,10 @@
     <div class="container container-painel">
         <div class="row">
             <div class="col-12">
-                <a class="btn btn-sm btn-danger" href="<?=$urlBase?>sair.php">Sair</a>
-                <h1>Bem vindo</h1>
+                <div class="align-center">
+                    <a class="btn btn-sm btn-danger" href="<?=$urlBase?>sair.php">Sair</a>
+                    <h1>Bem vindo</h1>
+                </div>
 
                 <div class="row mt-5">
 
@@ -85,6 +87,17 @@
     }
 
 
+    .align-center{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 50px;
+        margin-top: 50px;
+    }   
+
+    .align-centerf h1{
+        margin-bottom: 0px;
+    }
 
 
 </style>

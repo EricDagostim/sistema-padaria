@@ -25,7 +25,7 @@
             
             if ($result) {
                 echo "Usuário cadastrado com sucesso!";
-                header("Location: {$urlBase}usuarios/index.php");
+                // header("Location: {$urlBase}usuarios/index.php");
             }else {
                 echo "Ocorreu um erro! Por favor, tente novamente";
             }
@@ -58,7 +58,7 @@
                
                     <h1>Cadastro Usuários</h1>
                    
-                    <form class="form-cadastro" method="POST" name="form">
+                    <form class="form-padrao" method="POST" name="form">
                          
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="align-btns">
-                            <a type="button" href="<?= $urlBase ?>/usuarios/index.php" class="btn btn-secondary">Voltar</a>
+                            <a type="button" href="<?= $urlBase ?>usuarios/index.php" class="btn btn-secondary">Voltar</a>
                             <button type="submit" value="submit" name="submit" class="btn btn-success">Cadastrar</button>
                         </div>
 

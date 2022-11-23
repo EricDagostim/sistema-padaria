@@ -29,7 +29,7 @@
 
 
 
-.container-cadastro .form-cadastro{
+.container-cadastro .form-padrao{
 
     display: flex ;
     flex-direction: column;
@@ -52,6 +52,7 @@
     flex-direction: row;
     gap: 10px;
 }
+
 
 /* cadastro */
 
